@@ -1,0 +1,31 @@
+@import "@/app/styles/mixin.scss";
+
+.label {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-black);
+    font-family: var(--font-family-poppins500);
+    font-size: 0.208in; 
+    gap: 0.125in;     
+
+    .input  {
+        padding: 0.167in 0.25in; 
+        border: 0.010in solid var(--color-gray-light);
+        border-radius: 0;
+        font-size: 0.188in; 
+        width: fit-content;
+        @include placeholder;
+
+        &.fullWidth {
+            width: 100%;
+        }
+
+        &.error {
+            border: 0.010in solid var(--color-red);
+        }
+    }
+}
+
+.errorMessage {
+    color: var(--color-red);
+}

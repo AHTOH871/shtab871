@@ -1,0 +1,32 @@
+@use '@/app/styles/mixin.scss' as *;
+
+.slide_container {
+    position: relative; 
+    background-color: var(--color-white); 
+    width: 13.333in; 
+    height: 7.5in;
+    margin: auto;
+
+    .slide {
+        position: relative;
+        height: 100%;
+        padding: 0.333in; 
+
+        .slide_header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--color-green-gray);
+            padding: 0.167in; 
+        }
+
+        .slide_content {
+            box-sizing: border-box;
+            margin-top: 0.667in; 
+            height: calc(100% - 0.667in);
+            border-radius: 0.167in; 
+            box-shadow: 0 0 0.104in 0 var(--color-green-gray-shadow); 
+            overflow: hidden;
+        }
+    }
+}

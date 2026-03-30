@@ -1,0 +1,18 @@
+.blocktitle_container {
+    padding: var(--padding-16);
+    border-radius:  var(--border-radius-s);
+    color: var(--color-white);
+    height: fit-content;
+
+    &.red {
+        background-color: var(--color-red);
+    }
+
+    &.green {
+        background-color: var(--color-green);
+    }
+
+    &.yellow {
+        background-color: var(--color-yellow-zone);
+    }
+}

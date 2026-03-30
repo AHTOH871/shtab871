@@ -1,0 +1,56 @@
+:root {
+	/* Font Families */
+	--font-family-circe: 'Circe-400', sans-serif;
+	--font-family-italiana: 'Gotham Pro - italic', sans-serif;
+
+	--font-family-circe400: 'Circe-400';
+	--font-family-circe600: 'Circe-600';
+	--font-family-circe800: 'Circe-800';
+	--font-family-italiana400: 'Gotham Pro - italic';
+
+	/* Font size (in inches) */
+	--font-size-8: 0.083in;	  /* 8px */
+	--font-size-12: 0.125in;  /* 12px */
+	--font-size-14: 0.146in;  /* 14px */
+	--font-size-16: 0.167in;  /* 16px */
+	--font-size-18: 0.188in;  /* 18px */
+	--font-size-20: 0.208in;  /* 20px */
+	--font-size-22: 0.229in;  /* 22px */
+	--font-size-24: 0.25in;   /* 24px */
+	--font-size-26: 0.271in;  /* 26px */
+	--font-size-28: 0.292in;  /* 28px */
+	--font-size-32: 0.333in;  /* 32px */
+	--font-size-36: 0.375in;  /* 36px */
+	--font-size-48: 0.5in;    /* 48px */
+	--font-size-64: 0.667in;  /* 64px */
+
+	/* Colors */
+	--color-black: #242424;
+	--color-green: #046D7E;
+	--color-light-green: rgb(209, 234, 238);
+	--color-yellow-green: #3F5944;
+	--color-red: #E18383;
+	--color-dark-red: #ab0000;
+	--color-white: #ffffff;
+	--color-red-zone: #f8d7da;
+	--color-pink: #f5e8e9;
+	--color-yellow-zone: #fbffda;
+	--color-green-zone: #e1f8d7;
+	--color-gray-zone: #ccc;
+	--color-dark-yellow: #f7db21;
+	--color-green-gray: #7B898A;
+	--color-dark-green-gray: #474f50;
+	--color-green-gray-shadow: #7b898a5c;
+	--color-green-border: #ccc;
+	--color-green-header: #E9EEEA;
+
+	/* Border radius (in inches) */
+	--border-radius-s: 0.167in; /* 16px */
+	--border-radius-m: 0.25in;  /* 24px */
+	--border-radius-circle: 50%;
+
+	/* Padding (in inches) */
+	--padding-16: 0.167in;   /* 16px */
+	--padding-24: 0.25in;    /* 24px */
+	--padding-120: 1.25in;   /* 120px */
+}

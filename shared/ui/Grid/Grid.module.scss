@@ -1,0 +1,60 @@
+$gap-sizes: (
+    4: 0.042in,  // 4px
+    8: 0.083in,  // 8px
+    16: 0.167in, // 16px
+    24: 0.25in,  // 24px
+    32: 0.333in, // 32px
+    48: 0.5in,   // 48px
+);
+
+
+@mixin generate-gaps($prefix, $property) {
+    @each $size, $value in $gap-sizes {
+        &.#{$prefix}#{$size} {
+            #{$property}: $value;
+        }
+    }
+}
+
+.grid {
+    display: grid;
+
+    &.justifyStart { justify-content: flex-start; }
+    &.justifyCenter { justify-content: center; }
+    &.justifyEnd { justify-content: flex-end; }
+    &.justifyBetween { justify-content: space-between; }
+
+    &.alignStart { align-items: flex-start; }
+    &.alignCenter { align-items: center; }
+    &.alignEnd { align-items: flex-end; }
+
+    &.fullWidth {
+        width: 100%;
+    }
+    &.zones {
+        gap: 0.167in;
+        grid-template-columns: auto 1fr auto auto !important;
+    }
+
+    &.tender {
+        grid-template-columns: 0.625in 1fr 0.625in 2fr 1.5fr 2fr !important;
+    }
+
+    @for $i from 1 through 6 {
+        &.cols#{$i} {
+            grid-template-columns: repeat($i, 1fr);
+        }
+    }
+
+   
+
+    @for $i from 1 through 6 {
+        &.rows#{$i} {
+            grid-template-rows: repeat($i, 1fr);
+        }
+    }
+
+    @include generate-gaps('gap', 'gap');
+    @include generate-gaps('rowGap', 'row-gap');
+    @include generate-gaps('columnGap', 'column-gap');
+}

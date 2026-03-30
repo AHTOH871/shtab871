@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Circe-400';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('@/shared/assets/fonts/Circe-Light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Circe-600';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('@/shared/assets/fonts/Circe-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Circe-800';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('@/shared/assets/fonts/Circe-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Gotham Pro - italic';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('@/shared/assets/fonts/gothampro_italic.ttf') format('ttf');
+}

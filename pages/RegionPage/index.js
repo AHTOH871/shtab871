@@ -1,0 +1,1 @@
+export { LazyRegionPage as RegionPage } from "./RegionPage.lazy.jsx";

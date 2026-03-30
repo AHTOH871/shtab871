@@ -1,0 +1,44 @@
+@use "@/app/styles/mixin.scss" as *;
+
+.slide_container {
+    background-image: url('../../shared/assets/images/numbering.png');
+    background-color: var(--color-white);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: auto; 
+    position: relative;
+
+    @include section-style-pptx;
+
+    .header {
+        margin-right: auto;
+    }
+
+    .logo {
+        width: 1.0in;       
+        max-height: 0.667in;
+    }
+
+    .slide_content {
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    .slide_number {
+        position: absolute;
+        bottom: 0.333in; 
+        right: 0.333in;
+        box-sizing: border-box;
+        font-size: 0.2in;  
+        font-weight: bold;
+        color: #333; 
+    }
+
+    .slide_date {
+        position: absolute;
+        bottom: 0.333in;    
+        right: 2.333in;     
+        font-size: 0.167in; 
+        color: #555;
+    }
+}

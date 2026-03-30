@@ -1,0 +1,46 @@
+.container_main {
+    background-color: transparent;
+    padding: var(--padding-16);
+    border-radius:  var(--border-radius-s);
+    height: fit-content;
+
+    &.border {
+        border: 0.021in solid var(--color-red);
+    }
+
+    &.fullwidth {
+        width: 100%;
+    }
+
+    &.red {
+        background-color: var(--color-red-zone);
+    }
+
+    &.yellow {
+        background-color: var(--color-yellow-zone);
+    }
+
+    &.green {
+        background-color: var(--color-green-zone);
+    }
+
+    &.lightGreen {
+        background-color: var(--color-light-green);
+    }
+    &.pink {
+        background-color: var(--color-pink);
+    }
+
+    &.darkRed {
+        border: 0.021in solid var(--color-red);
+    }
+
+    &.darkYellow {
+        border: 0.021in solid var(--color-dark-yellow);
+    }
+
+    &.darkGreen {
+        border: 0.021in solid var(--color-green);
+    }
+
+}

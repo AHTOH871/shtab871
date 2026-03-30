@@ -1,0 +1,56 @@
+@use '@/app/styles/mixin.scss' as *;
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    position: relative; 
+    border-radius: var(--border-radius-m);
+    border: 0.021in solid var(--color-yellow-green); 
+    color: var(--color-green-gray);
+    padding: 0.104in 0.208in; 
+    transition: all 0.3s;
+    font-family: var(--font-family-circe600);
+}
+
+.filled {
+    & {
+        background-color: transparent;
+        color: var(--color-white);
+        border: 0.021in solid var(--color-green-gray);
+        background-color: var(--color-green-gray);
+    }
+}
+
+
+.waiting {
+    width: 0.438in; 
+    position: absolute;
+    top: 40%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+
+    circle {
+        fill: black;
+        transform: scale(1.5);
+        animation: fade-in 1.2s infinite;
+
+        @keyframes fade-in {
+            0% {
+                opacity: 1;
+            }
+
+            50%,
+            100% {
+                opacity: 0.5;
+            }
+        }
+
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}) {
+                animation-delay: 0.4s * ($i - 1);
+            }
+        }
+    }
+}

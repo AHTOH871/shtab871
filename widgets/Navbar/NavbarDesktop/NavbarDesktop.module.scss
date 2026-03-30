@@ -1,0 +1,37 @@
+@use '@/app/styles/mixin.scss' as *;
+
+.navbarDesktop {
+    box-shadow: 0 0 0.104in 0 var(--color-green-gray-shadow);
+
+    .navbarDesktop_container {
+        @include section-style-pptx;
+
+        height: auto;
+
+        padding-top: 0.167in;
+        padding-bottom: 0.167in;
+
+
+        .profile {
+            margin-right: auto;
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            border-radius: var(--border-radius-m);
+            border: 0.021in solid var(--color-yellow-green); 
+            color: var(--color-yellow-green);
+            padding: 0.104in 0.208in; 
+            font-family: var(--font-family-circe600);
+
+            &.active {
+                background-color: var(--color-green-gray-shadow);
+            }
+        }
+    }
+
+}
+

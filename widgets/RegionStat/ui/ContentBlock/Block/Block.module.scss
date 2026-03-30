@@ -1,0 +1,24 @@
+.block {
+    border-radius: var(--border-radius-s);
+    border: 0.021in solid var(--color-dark-green-gray);
+    position: relative;
+    overflow: hidden;
+    min-height: 1in;
+
+    .block_number {
+        position: absolute;
+        background-color: var(--color-green-gray);
+        min-width: 1in;
+        height: 100%;
+        left: 0;
+        top: 0;
+
+        p {
+            rotate: -90deg;
+        }
+    }
+
+    .block_children {
+        padding: 0.167in 0.167in 0.167in 1.333in;
+    }
+}

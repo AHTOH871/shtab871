@@ -1,0 +1,95 @@
+@use '@/app/styles/media-queries.scss' as *;
+
+$font-families: (
+    "circe400": --font-family-circe400,
+    "circe600": --font-family-circe600,
+    "circe800": --font-family-circe800,
+    "italiana": --font-family-italiana400,
+);
+
+$text-colors: (
+    "black": --color-black,
+    "gray": --color-gray-dark,
+    "green": --color-green,
+    "yellow-green": --color-yellow-green,
+    "red": --color-red,
+    "white": --color-white,
+    "dark-red": --color-dark-red,
+    "dark-yellow": --color-dark-yellow,
+);
+
+$font-sizes: (
+    "h1": --font-size-48,
+    "h2": --font-size-32,
+    "h3": --font-size-28,
+    "h4": --font-size-22,
+    "h5": --font-size-20,
+    "p": --font-size-16,
+    "li": --font-size-16,
+    "span": --font-size-14
+);
+
+$font-sizes-mobile: (
+    "h1": --font-size-32,
+    "h2": --font-size-28,
+    "h3": --font-size-24,
+    "h4": --font-size-22,
+    "h5": --font-size-18,
+    "p": --font-size-16,
+    "li": --font-size-16,
+    "span": --font-size-14
+);
+
+$font-sizes-rem: (
+    "size8": --font-size-8,
+    "size14": --font-size-14,
+    "size16": --font-size-16,
+    "size18": --font-size-18,
+    "size20": --font-size-20,
+    "size22": --font-size-22,
+    "size24": --font-size-24,
+    "size28": --font-size-28,
+    "size32": --font-size-32,
+    "size48": --font-size-48
+);
+
+
+.size8 { font-size: var(--font-size-8) !important; }
+.size12 { font-size: var(--font-size-12) !important; }
+.size14 { font-size: var(--font-size-14) !important; }
+.size16 { font-size: var(--font-size-16) !important; }
+.size18 { font-size: var(--font-size-18) !important; }
+.size20 { font-size: var(--font-size-20) !important; }
+.size22 { font-size: var(--font-size-22) !important; }
+.size24 { font-size: var(--font-size-24) !important; }
+.size28 { font-size: var(--font-size-28) !important; }
+.size32 { font-size: var(--font-size-32) !important; }
+.size48 { font-size: var(--font-size-48) !important; }
+
+@each $tag, $size in $font-sizes {
+    #{$tag} {
+        font-size: var(#{$size});
+
+        @include mobile-l {
+            @each $tablet-tag, $tablet-size in $font-sizes-mobile {
+                @if $tablet-tag == $tag {
+                    font-size: var(#{$tablet-size});
+                }
+            }
+        }
+    }
+}
+
+
+@mixin styles($map, $property) {
+    @each $key, $value in $map {
+        &.#{$key} {
+            #{$property}: var(#{$value});
+        }
+    }
+}
+
+.typography {
+    @include styles($font-families, font-family);
+    @include styles($text-colors, color);
+}

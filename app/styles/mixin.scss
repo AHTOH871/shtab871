@@ -1,0 +1,32 @@
+@use './media-queries.scss' as *;
+
+@mixin section-style {
+    width: 1280px;
+    margin: auto;
+
+    @include desktop-m {
+        width: 1100px;
+        padding: 0 40px;
+    }
+
+    @include tablet-l {
+        width: 100%;
+        padding: 0 30px;
+    }
+
+    @include mobile-l {
+        width: 100%;
+        padding: 0 20px;
+    }
+}
+@mixin section-style-pptx {
+    width: 13.333in; 
+    height: 7.5in;
+    margin: auto;
+    padding: 0.417in; 
+}
+
+@mixin dashed-border {
+    border: 0.021in dashed var(--color-black);
+    padding: 0.083in;
+}

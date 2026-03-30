@@ -1,0 +1,1 @@
+export { LazyStatsPage as StatsPage } from "./StatsPage.lazy.jsx";
