@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/static/css/style2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/circe" rel="stylesheet"> -->
+    <title>Подробная информация</title>
+</head>
+
+<body id=cont_to_pdf class="page2">
+    <header class="header">
+        <div class="account">
+            <img src="/static/img/account2.png" alt="Account Icon" onclick="showAccountName()">
+            <div class="account-name">
+                Иванов В.П. / <a href="/accounts/login/">Выход</a>
+            </div>
+        </div>
+        <div class="header-right">
+            <!-- <button id="editButton" class="button button--secondary header__edit-button">Редактировать таблицу</button> -->
+            <a href="../regions" id="backButton" class="a">Статистика по региону</a> 
+            <button id="exportButton" class="button button--secondary header__edit-button">Сгенерировать слайды</button>
+        </div>
+        <!-- /.header-right -->
+    </header>
+    <main>
+        <!-- Блок 1 Устойчивость региональных операторов -->
+        <div class="slide-container">
+            <h1 class="element">Блок 1 <br />Устойчивость региональных операторов</h1>
+            <div class="tables-container" id="tableContainer1" >
+                <div class="table-wrapper">
+                    <table class="custom-table" >
+                        <tr>
+                            <th>№</th>
+                            <th>Субъект</th>
+                            <th>Дефицит</th>
+                            <th>ДК*</th>
+                        </tr>
+                    </table>
+                </div>
+                {% for zone in low_stability %}
+                <div class="table-wrapper">
+                    <table class="custom-table" >
+                        {% for z in zone %}
+                        <tr class="low-stability">
+                        <td>{{ z.id }}</td>
+                        <td>{{ z }}</td>
+                        <td>{{ z.risks_zones }}</td>
+                        <td>{{ z.road_map_ro }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    </div>
+                {% endfor %}
+                    <div class="table-wrapper">
+                        <table class="custom-table" >
+                            <tr>
+                                <th>№</th>
+                                <th>Субъект</th>
+                                <th>Дефицит</th>
+                                <th>ДК*</th>
+                            </tr>
+                        </table>
+                    </div>
+                {% for zone in medium_stability %}
+                    <div class="table-wrapper">
+                        <table class="custom-table" >
+                            {% for z in zone %}
+                            <tr class="medium-stability">
+                            <td>{{ z.id }}</td>
+                            <td>{{ z }}</td>
+                            <td>{{ z.risks_zones }}</td>
+                            <td>{{ z.road_map_ro }}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    {% endfor %}
+                    <div class="table-wrapper">
+                        <table class="custom-table" >
+                            <tr>
+                                <th>№</th>
+                                <th>Субъект</th>
+                                <th>Дефицит</th>
+                                <th>ДК*</th>
+                            </tr>
+                        </table>
+                    </div>
+                    {% for zone in high_stability %}
+                    <div class="table-wrapper">
+                        <table class="custom-table" >
+                            {% for z in zone %}
+                            <tr class="high-stability">
+                            <td>{{ z.id }}</td>
+                            <td>{{ z }}</td>
+                            <td>{{ z.risks_zones }}</td>
+                            <td>{{ z.road_map_ro }}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                </div>
+                {% endfor %}
+                <div class="table-wrapper">
+                        <table class="custom-table" >
+                            <tr>
+                                <th>№</th>
+                                <th>Субъект</th>
+                                <th>Дефицит</th>
+                                <th>ДК*</th>
+                            </tr>
+                        </table>
+                    </div>
+                    {% for zone in gray_zone %}
+                    <div class="table-wrapper">
+                        <table class="custom-table" >
+                            {% for z in zone %}
+                            <tr class="unknown-stability">
+                            <td>{{ z.id }}</td>
+                            <td>{{ z }}</td>
+                            <td>{{ z.risks_zones }}</td>
+                            <td>{{ z.road_map_ro }}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    {% endfor %}
+                    </div>
+                <div class="right-containers-page2">
+                    <div class="container-page2 dashed">
+                        <p><span class="gray">{{gray_zone_count}}</span> - в серой зоне<br />
+                        <span class="red"> {{red_zone_count}}</span><span class="red"></span> - в красной зоне<br />
+                        <span class="yellow"> {{mid_zone_count}} </span><span class="yellow"></span> - в желтой зоне<br />
+                        <span class="green">{{green_zone_count}}</span> <span class="green"></span> - в зеленой зоне</p>
+                    </div>
+                    <div class="container-page2 dashed">
+                        <p><strong>Дорожные карты</strong> (красная и желтая зоны):
+                            <br />&nbsp;
+                            <br />8 – не утверждены
+                            <br />36 – утверждены</p>
+                    </div>
+                 </div>   
+            </div>
+            <img src="/static/img/numbering.png" alt="Numbering" class="numbering-image">
+            <div class="number-overlay">1</div>
+            <div class="date-text-page2">По состоянию на 18.03.2025</div>
+            <div class="left-bottom-info">
+                <div class="square"></div>
+                <span>- Просрочено исполнение мероприятий ДК у 6 регионов</span>
+            </div>
+        </div> 
+
+        <!-- Отсутствие банковской гарантии -->
+        <div class="slide-container">
+            <h1 class="element">Отсутствие банковской гарантии</h1>
+            <div class="bgk-table-container" id="BankGuarantee"></div>
+            <div class="right-containers-page2">
+                <div class="bgk-container-page2 bgk-dashed">
+                    <span class="green">- 1 региональный оператор за неделю (Омская область)</span>
+                </div>
+            </div>
+            <img src="/static/img/numbering.png" alt="Numbering" class="numbering-image">
+            <div class="number-overlay">2</div>
+            <div class="date-text-page2">По состоянию на 18.03.2025</div>
+        </div>
+        <!-- Реализация дорожных карт -->
+        <div class="slide-container">
+            <h1 class="element">Реализация дорожных карт</h1>
+            <div class="roadmap-container">
+                <div class="roadmap-row">
+                    <div class="roadmap-col">
+                        <div class="roadmap-header">
+                            <span>ПО УСТОЙЧИВОСТИ РО</span>
+                        </div>
+                        <div class="roadmap-body">
+                            <div class="lines-main">
+                                <div class="line-text-main">
+                                    <span class="big-black">44</span>
+                                    <span class="small-black">субъекта</span><br>
+                                    <span class="blue-text">ВСЕГО К УТВЕРЖДЕНИЮ</span>
+                                </div>
+                                <div class="line-main"></div>
+                                <div class="line-text-main">
+                                    <span class="big-black">41</span>
+                                    <span class="small-black">субъект</span><br>
+                                    <span class="blue-text">УТВЕРЖДЕНО</span>
+                                </div>
+                                <div class="line-main"></div>
+                                <div class="line-text-main">
+                                    <span class="big-black">41</span>
+                                    <span class="small-black">субъект*</span><br>
+                                    <span class="blue-text">ВНЕСЕНО ВО ФГИС УТКО</span>
+                                </div>
+                                <div class="line-main"></div>
+                                <div class="line-text-main">
+                                    <span class="small-green">+7 регионов</span><br>
+                                    <span class="blue-text">ПЕРЕШЛИ В «ЗЕЛЕНУЮ ЗОНУ»</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="roadmap-ellipse1">
+                        <img src="/static/img/connecting-arrow.png" alt="arrow" class="connecting-arrow">
+                    </div>
+                    <div class="roadmap-ellipse2">
+                        <img src="/static/img/connecting-arrow.png" alt="arrow" class="connecting-arrow">
+                    </div>
+                    <div class="roadmap-ellipse3">
+                        <img src="/static/img/connecting-arrow.png" alt="arrow" class="connecting-arrow">
+                    </div>
+                    <div class="roadmap-ellipse4">
+                        <img src="/static/img/connecting-arrow.png" alt="arrow" class="connecting-arrow">
+                    </div>
+                    <div class="roadmap-col">
+                        <div class="roadmap-header">
+                            <span>КОММЕНТАРИИ</span>
+                        </div>
+                        <div class="roadmap-body">
+                            <div class="lines-comments">
+                                <div class="comments-text">Республики Калмыкия, Карелия,
+                                    <br>Татарстан, Чеченская Республика,
+                                    <br>Пензенская, Саратовская области и ЯНАО
+                                    <br>— перешли в <span class="yellow">«желтую зону»</span>
+                                    <br>Омская область – в <span class="red">«красную зону»</span>
+                                    </div>
+                                <div class="line-comments"></div>
+                                <div class="comments-text">Саратовская область,
+                                    <br>Республика Татарстан, ЯНАО
+                                    <br>— срок утверждения 
+                                    <br>до <span class="yellow">23.05.2025</span></div>
+                                <div class="line-comments"></div>
+                                <div class="comments-text">*ДНР, Запорожская и Херсонская
+                                    <br>области
+                                    <br>— полное внесение ДК технически
+                                    <br>ограничено </div>
+                                <div class="line-comments"></div>
+                                <div class="comments-text">Астраханская, Ивановская, Псковская,
+                                    <br>Рязанская, Сахалинская, Челябинская
+                                    <br>области, Еврейская АО </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="roadmap-col red">
+                        <div class="roadmap-header red">
+                            <span>НАРУШЕНИЕ РЕАЛИЗАЦИИ ДК</span>
+                        </div>
+                        <div class="roadmap-body">
+                            <div class="violation-text"> 
+                                Карачаево-Черкесская Республика
+                                <br><span class="red">(нарушение сроков - 114 дней)</span>
+                                <br>Амурская область
+                                <br><span class="red">(нарушение сроков - 114 дней)</span>
+                                <br>Республика Хакасия
+                                <br><span class="red">(нарушение сроков - 114 дней)</span>
+                                <br>Чукотский автономный округ
+                                <br><span class="red">(нарушение сроков - 114 дней)</span>
+                                <br>
+                                <br><span class="gray">Не обеспечено получение
+                                <br>банковской гарантии</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="roadmap-ellipse5">
+                        <img src="/static/img/connecting-arrow.png" alt="arrow" class="connecting-arrow">
+                    </div>
+                    <div class="roadmap-col red">
+                        <div class="roadmap-header red">
+                            <span>НАРУШЕНИЕ РЕАЛИЗАЦИИ ДК</span>
+                        </div>
+                        <div class="roadmap-body">
+                            <div class="violation-text"> 
+                                Магаданская область
+                                <br><span class="red">(нарушение сроков – 58 дней)</span>
+                                <br>
+                                <br>Не проводится претензионно-исковая
+                                <br>работа с потребителями
+                                <br>в целях снижения дебиторской
+                                <br>задолженности и повышения уровня
+                                <br>собираемости платежей
+                                <br><span class="red">нарушение сроков – 114 дней</span>
+                                <br>Не обеспечено получение банковской
+                                <br>гарантии
+                                <br>
+                                <br>
+                                <br>Самарская область
+                                <br><span class="red">(нарушение сроков - 79 дней)</span>
+                                <br>
+                                <br><span class="gray">Не обеспечено заключение договоров
+                                <br>на уборку КП , вывоз отходов не ТКО,
+                                <br>ликвидацию несанкционированных
+                                <br>свалок</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="/static/img/numbering.png" alt="Numbering" class="numbering-image">
+            <div class="number-overlay">3</div>
+            <div class="date-text-page2">По состоянию на 18.03.2025</div>
+        </div>
+        <!-- Обеспеченность специальной техникой -->
+        <div class="slide-container">
+            <h1 class="element">Блок 2 <br />Обеспеченность специальной техникой</h1>
+            <h2 class="average">Среднероссийский – %</h2>
+            <div class="tables-container" id="tableContainer2"></div>
+            <div class="right-containers-page2">
+                <div class="container-page2 dashed">
+                    <span class="red"></span> <span class="red">(+3)</span> - в красной зоне<br />
+                    <span class="yellow"></span> <span class="yellow">(-1)</span> - в желтой зоне<br />
+                    <span class="green"></span> <span class="green">(+1)</span> - в зеленой зоне</p>
+                </div>
+                <div class="container-page2 dashed">
+                    <p><strong>Дорожные карты</strong> (красная и желтая зоны):
+                        <br />8 – не утверждены
+                        <br />36 – утверждены</p>
+                </div>
+            </div>
+            <img src="/static/img/numbering.png" alt="Numbering" class="numbering-image">
+            <div class="number-overlay">4</div>
+            <div class="date-text-page2">По состоянию на 18.03.2025</div>
+        </div> 
+        <!-- Блок 2 Закупка специальной техники на 2025 год -->
+        <div class="slide-container">
+            <h1 class="element">Блок 2 <br/>Закупка специальной техники на 2025 год</h1>
+            <div class="bgk-table-container" id="Purchase2025"></div>
+            <div class="right-containers-page2">
+                <div class="container-page2 dashed">
+                    <span>Всего на 2025 г.*:</span><br />
+                    <span>295 – план</span><br />
+                    <span>57 – факт (19%)</span></p>
+                </div>
+            </div>
+            <img src="/static/img/numbering.png" alt="Numbering" class="numbering-image">
+            <div class="number-overlay">5</div>
+            <div class="date-text-page2">По состоянию на 18.03.2025</div>
+            <div class="left-bottom-info">
+                <span>**размер финансирования с учётом замены техники, имеющей износ</span>
+            </div>
+        </div>
+        <!-- Блок 3  Обеспеченность контейнерными площадками (1/2) -->
+        <div class="slide-container">
+            <h1 class="element">Блок 3 <br />Обеспеченность контейнерными площадками (1/2)</h1>
+            <h2 class="average">Среднероссийский – %</h2>
+            <div class="tables-container" id="tableContainer3"></div>
+            <div class="right-containers-page2">
+                <div class="container-page2 dashed">
+                    <span class="red"></span> <span class="red">(+3)</span> - в красной зоне<br />
+                    <span class="yellow"></span> <span class="yellow">(-1)</span> - в желтой зоне<br />
+                    <span class="green"></span> <span class="green">(+1)</span> - в зеленой зоне</p>
+                </div>
+                <div class="container-page2 dashed">
+                    <p><strong>Дорожные карты</strong> (красная и желтая зоны):
+                        <br />35 – утверждены</p>
+                </div>
+            </div>
+            <img src="/static/img/numbering.png" alt="Numbering" class="numbering-image">
+            <div class="number-overlay">6</div>
+            <div class="date-text-page2">По состоянию на 18.03.2025</div>
+            <div class="left-bottom-info">
+                <div class="square"></div>
+                <span>- Просрочено исполнение мероприятий ДК у 4 регионов</span>
+            </div>
+        </div>
+        <!-- Блок 3  Обеспеченность контейнерами (2/2) -->
+        <div class="slide-container">
+            <h1 class="element">Блок 3 <br />Обеспеченность контейнерами (2/2)</h1>
+            <h2 class="average">Среднероссийский – %</h2>
+            <div class="tables-container" id="tableContainer4"></div>
+            <div class="right-containers-page2">
+                <div class="container-page2 dashed">
+                    <span class="red"></span>  - в красной зоне<br />
+                    <span class="yellow"></span>  - в желтой зоне<br />
+                    <span class="green"></span> - в зеленой зоне</p>
+                </div>
+                <div class="container-page2 dashed">
+                    <p><strong>Дорожные карты</strong> (красная и желтая зоны):
+                        <br />35 – утверждены</p>
+                </div>
+            </div>
+            <img src="/static/img/numbering.png" alt="Numbering" class="numbering-image">
+            <div class="number-overlay">7</div>
+            <div class="date-text-page2">По состоянию на 18.03.2025</div>
+            <div class="left-bottom-info">
+                <div class="square"></div>
+                <span>- Просрочено исполнение мероприятий ДК у 3 регионов</span>
+            </div>
+        </div>
+        <!-- Реализация дорожных карт по КП и контейнерам -->
+        <div class="slide-container">
+            <h1 class="element">Реализация дорожных карт по КП и контейнерам</h1>
+            <div class="kp-container">
+                <div class="kp-row">
+                    <div class="kp-col">
+                        <div class="kp-header">
+                            <span class="kp-header-title">ДК по обеспеченности местами (площадками)<br>накопления ТКО и контейнерами
+                                </span>
+                        </div>
+                        <div class="kp-body">
+                            <div class="kp-lines-main">
+                                <div class="line-text-main">
+                                    <span class="big-black">38</span>
+                                    <span class="small-black">субъектов</span><br>
+                                    <span class="blue-text">ВСЕГО К УТВЕРЖДЕНИЮ</span>
+                                </div>
+                                <div class="kp-line-main"></div>
+                                <div class="line-text-main">
+                                    <span class="big-black">35</span>
+                                    <span class="small-black">субъектов</span><br>
+                                    <span class="blue-text">УТВЕРЖДЕНО</span>
+                                </div>
+                                <div class="kp-line-main"></div>
+                                <div class="line-text-main">
+                                    <span class="big-black">2</span>
+                                    <span class="small-black">субъекта</span><br>
+                                    <span class="blue-text">НЕ УТВЕРЖДЕНО</span>
+                                    <span class="small-gray">Республика Калмыкия, Чукотский автономныйокруг*</span><br>
+                                </div>
+                                <div class="kp-line-main"></div>
+                                <div class="line-text-main">
+                                    <span class="big-black">35</span>
+                                    <span class="small-black">субъектов</span><br>
+                                    <span class="blue-text">ВНЕСЕНО ВО ФГИС УТКО</span>
+                                </div>
+                                <div class="kp-line-main"></div>
+                                <div class="line-text-main">
+                                    <span class="big-black">35</span>
+                                    <span class="small-black">субъектов</span><br>
+                                    <span class="blue-text">РЕАЛИЗАЦИЯ ИСПОЛНЕНИЯ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="kp-ellipse1">
+                    <img src="/static/img/connecting-arrow.png" alt="arrow" class="connecting-arrow">
+                </div>
+                <div class="kp-col gray">
+                    <div class="kp-header gray">
+                        <span class="kp-header-title">Формирование плана закупок на 2025 год
+                            <br>в рамках ДК</span>
+                    </div>
+                    <div class="kp-body red-header">
+                        <div class="kp-violation-text"> 
+                            <span class="kp-small-black">3 субъекта</span> направлены на доработку
+                            (Республика Алтай (потребность согласована, план закупок на доработку);
+                            Кабардино-Балкарская Республика (потребность согласована, план закупок на доработку);
+                            Республика Карелия)
+                        </div>
+                    </div>
+                    <div class="kp-body blue-header">
+                        <div class="kp-violation-text"> 
+                            <span class="kp-small-black">1 субъект</span> на рассмотрении ППК РЭО
+                            (Камчатский край).
+                        </div>
+                    </div>
+                    <div class="kp-body green-header">
+                        <div class="kp-violation-text"> 
+                            <span class="kp-small-black">31 субъект</span> согласован (Алтайский край; Архангельская область; Белгородская
+                            область; Брянская область; Еврейская автономная область; Забайкальский край;
+                            Иркутская область; Калининградская область; Калужская область; КарачаевоЧеркесская Республика; Краснодарский край; Красноярский край; Новгородская
+                            область; Новосибирская область; Оренбургская область; Орловская область;
+                            Пермский край; Псковская область; Республика Бурятия; Республика Дагестан;
+                            Республика Ингушетия; Республика Саха (Якутия); Республика Северная Осетия –
+                            Алания; Республика Тыва; Республика Хакасия; Ростовская область; Самарская
+                            область; Смоленская область; Тверская область; Томская область; Ульяновская
+                            область)
+                        </div>
+                    </div>
+                </div>
+            
+                <img src="/static/img/numbering.png" alt="Numbering" class="numbering-image">
+            <div class="number-overlay">8</div>
+            <div class="date-text-page2">По состоянию на 18.03.2025</div>
+            <div class="left-bottom-info">
+                <span>* перешли из «зеленой зоны» в «желтую/красную зоны» в период с 2025 года</span>
+            </div>
+        </div>
+        <!-- Блок 4  Обеспеченность инфраструктурой по обращению с ТКО (2/2) -->
+        <div class="slide-container">
+            <h1 class="element">Блок 4 <br />Обеспеченность инфраструктурой по обращению с ТКО</h1>
+            <h2 class="average">Среднероссийский – обработка 54 %,утилизация 14%</h2>
+            <div class="tables-container" id="tableContainer5"></div>
+            <div class="right-containers-page2">
+                <div class="container-page2 dashed">
+                    <span class="red">11</span>  - в красной зоне<br />
+                    <span class="yellow">21</span>  - в желтой зоне<br />
+                    <span class="green">57</span> - в зеленой зоне</p>
+                </div>
+                <div class="container-page2 dashed">
+                    <p><strong>Дорожные карты</strong> (красная и желтая зоны):
+                        <br />35 – утверждены</p>
+                </div>
+            </div>
+            <img src="/static/img/numbering.png" alt="Numbering" class="numbering-image">
+            <div class="number-overlay">11</div>
+            <div class="date-text-page2">По состоянию на 18.03.2025</div>
+            <div class="left-bottom-info">
+                <div class="square"></div>
+                <span>- Просрочено исполнение мероприятий ДК</span>
+            </div>
+        </div>
+        <!-- Передача данных весового контроля в ФГИС УТКО -->
+        <div class="slide-container">
+            <h1 class="element">Передача данных <br />весового контроля в ФГИС УТКО</h1>
+            <div class="tables-container" id="tableContainer6"></div>
+            <div class="right-containers-page2">
+                <div class="container-page2 dashed">
+                    <span class="red">23</span> <span class="red">(-3)</span> - в красной зоне<br />
+                    <span class="yellow">27</span> - в желтой зоне<br />
+                    <span class="green">35</span> <span class="green">(+1)</span> - в зеленой зоне</p>
+                </div>
+                <div class="container-page2 dashed">
+                    <p><strong>Дорожные карты</strong> (красная и желтая зоны):
+                        <br />562 (41,7%) – Настроена передача
+                        <br />785 ( 58,2%) – Не настроена передача</p>
+                </div>
+            </div>
+            <img src="/static/img/numbering.png" alt="Numbering" class="numbering-image">
+            <div class="number-overlay">14</div>
+            <div class="date-text-page2">По состоянию на 18.03.2025</div>
+        </div>
+        <!-- Внедрение мобильного приложения -->
+        <div class="slide-container">
+            <h1 class="element">Внедрение мобильного приложения <br />Осуществлена передача фотографий в разрезе субъектов РФ</h1>
+            <div class="tables-container" id="tableContainer7"></div>
+            <div class="right-containers-page2">
+                <div class="container-page2 dashed">
+                    <span>Всего зон</span>  - 258<br />
+                    <span class="red">11</span>  - в красной зоне<br />
+                    <span class="yellow">76</span>  - в желтой зоне<br />
+                    <span class="green">171</span> - в зеленой зоне</p>
+                </div>
+            </div>
+            <img src="/static/img/numbering.png" alt="Numbering" class="numbering-image">
+            <div class="number-overlay">15</div>
+            <div class="date-text-page2">По состоянию на 18.03.2025</div>
+            <div class="left-bottom-info">
+                <span>В рейтинге не участвуют исторические территории</span>
+            </div>
+        </div>
+        <!-- Передача данных ГЛОНАСС -->
+        <div class="slide-container">
+            <h1 class="element">Передача данных ГЛОНАСС</h1>
+            <div class="tables-container" id="tableContainer9"></div>
+            <div class="right-containers-page2">
+                <div class="container-page2 dashed">
+                    <span class="red">43</span> - в красной зоне<br />
+                    <span class="yellow">8</span> - в желтой зоне<br />
+                    <span class="green">27</span> - в зеленой зоне</p>
+                    <span class="gray">7</span> - в рейтинге не учтены</p>
+                </div>
+                <div class="container-page2 dashed">
+                    <p><strong>Всего ТС 25 306 (+160), из них:</strong>
+                        <br />10 860 (42,9%)– зафиксирована передача данных с 01.02.2025 по н.в.
+                        <br />14 446 (57%) – не обеспечена передача</p>
+                </div>
+            </div>
+            <img src="/static/img/numbering.png" alt="Numbering" class="numbering-image">
+            <div class="number-overlay">18</div>
+            <div class="date-text-page2">По состоянию на 18.03.2025</div>
+        </div>
+        <!-- Видеофиксация -->
+        <div class="slide-container">
+            <h1 class="element">Видеофиксация</h1>
+            <div class="tables-container" id="tableContainer8"></div>
+            <img src="/static/img/numbering.png" alt="Numbering" class="numbering-image">
+            <div class="number-overlay">19</div>
+            <div class="date-text-page2">По состоянию на 18.03.2025</div>
+        </div>
+        <!-- Обращения граждан -->
+        <div class="slide-container">
+            <h1 class="element">Обращения граждан</h1>
+            <h2 class="average">Средний показатель по РФ – 0,37 на 1000 жителей</h2>
+            <div class="tables-container" id="tableContainer10"></div>
+            <img src="/static/img/numbering.png" alt="Numbering" class="numbering-image">
+            <div class="number-overlay">20</div>
+            <div class="date-text-page2">По состоянию на 18.03.2025</div>
+        </div>
+    </main>
+</body>
+<script>
+    function exportHTMLtoPDF() {
+        // sessionStorage.clear();
+
+       let htmlElement = document.getElementById('cont_to_pdf');
+       var opt = {
+                    margin:       [0,0,0,0],
+                    image:        { type: 'jpeg', quality: 1 },
+                    html2canvas:  { scrollY: htmlElement.scrollY, scale: 1},
+                    jsPDF:        { unit: 'pt', format: 'a4', orientation: 'landscape'},
+                    pagebreak: {mode: 'avoid-all'}
+                    };
+
+       html2pdf().set(opt).from(htmlElement).save('exported_file.pdf');
+    //    
+    }
+
+    document.getElementById('exportButton').addEventListener('click', exportHTMLtoPDF);
+
+ </script> 
+ <script src="/static/js/showAccountInfo.js"></script>
+</html> 

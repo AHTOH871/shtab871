@@ -1,0 +1,1063 @@
+/* Страница входа*/
+
+/* База*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Gotham Pro, sans-serif;
+}
+body.dark {
+    background-color: #1E1E1E;
+}
+body.white {
+    background-color: #F8F8F8;
+}
+a {
+    text-decoration: none;
+    border: 2px solid #7B898A;
+    color: #3F5944;
+    border-radius: 20px;
+    padding: 10px 20px;
+    transition: all .3s;
+    margin: 0 5px; /* Отступы между кнопками */
+}
+.button {
+    background: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px 20px; /* Добавление отступов для кнопок */
+    margin: 0 5px; /* Отступы между кнопками */
+}
+.button--primary {
+    color: #3F5944;
+    border-radius: 20px;
+    border: 2px solid #7B898A;
+    transition: background-color .3s;
+}
+.button--primary:hover {
+    background-color: #7B898A;
+}
+.button--secondary {
+    border: 2px solid #7B898A;
+    color: #3F5944;
+    border-radius: 20px;
+    padding: 0 20px;
+    transition: all .3s;
+    margin: 0 15px; /* Отступы между кнопками */
+}
+.button-container {
+    display: flex; /* Используем Flexbox для расположения кнопок в строку */
+}
+.bottom-buttons {
+    display: flex; /* Используем Flexbox для расположения кнопок в строку */
+    justify-content: space-between; /* Раздвигаем кнопки по краям */
+}
+.red-button {
+    background-color: red; /* Красный фон */
+    color: white; /* Белый текст */
+}
+
+.yellow-button {
+    background-color: yellow; /* Желтый фон */
+    color: black; /* Черный текст для контраста */
+}
+
+.green-button {
+    background-color: green; /* Зеленый фон */
+    color: white; /* Белый текст */
+}
+
+/* Общие стили для кнопок */
+.button-container button {
+    border: none; /* Убираем рамку */
+    border-radius: 15px; /* Закругленные углы */
+    padding: 0px 10px; /* Отступы внутри кнопки */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+}
+
+.button-container button:hover {
+    opacity: 0.8; /* Эффект при наведении */
+}
+
+/* Стили для кнопки сохранения */
+.button-save {
+    border: 2px solid #7B898A;
+    border-radius: 20px;
+    padding: 0px 20px;
+    transition: all .3s;
+    background: transparent;
+    margin: 0 20px; /* Отступы между кнопками */
+}
+.dark .container {
+    max-width: 1780px;
+    width: 100%;
+    margin: 0 auto;
+}
+.white .container {
+    max-width: 1780px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+.white .generate_button-container {
+    padding: 0 0 50px;
+}
+.index-main {
+    height: 94.2vh;
+}
+.index-section {
+    display: flex;
+    height: 100%;
+}
+.index-wrap {
+    display: flex;
+    justify-content: center;
+}
+.submission-title {
+    color: #ffffff;
+    font-family: 'Bowler', sans-serif;
+    font-size: 75px;
+    margin-bottom: 50px;
+}
+.submission-title .tko {
+    color: #7B898A;
+}
+
+.logo {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    height: 60px;
+}
+
+.left-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 785px;
+    width: 100%;
+}
+.right-section-wrap {
+    display: flex;
+    align-items: flex-end;
+    max-width: 620px;
+    width: 100%;
+}
+.right-section {
+    position: relative;
+    background: url('../img/phone.svg') no-repeat bottom / cover;
+    background-size: 90% 90%;
+    width: 100%;
+    max-height: 786px;
+    height: 100%;
+}
+
+.rectangle {
+    position: relative;
+    background-color: #292929;
+    margin: 10px 0;
+    padding: 20px;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    text-align: left;
+    border-left: 8px solid transparent;
+    transition: .3s;
+    max-width: 680px; /* Фиксированная ширина */
+}
+.rectangle.active {
+    background-color: #3847B1;
+    color: #1E1E1E;
+}
+/* @media screen and (max-width: 1505px) {
+    .dark .container {
+        width: 95%;
+    }
+}
+@media screen and (max-width: 1250px) {
+    .submission-title {
+        font-size: ;
+    }
+} */
+.phone-mockup {
+    position: absolute;
+    top: calc(52% - 150px);
+    left: calc(50% - 225px);
+    max-width: 452px;
+    width: 100%;
+    max-height: 515px;
+    height: 100%;
+    background-color: #333;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+.phone-content {
+    width: 100%;
+    height: 100%;
+}
+
+.phone-content-item {
+    display: none;
+    color: #fff;
+    font-size: 24px;
+    padding: 42px 0 75px;
+    width: 100%;
+}
+.phone-content-item > * {
+    padding: 0 33px;
+}
+.phone-content-item.active {
+    display: block;
+}
+.phone-content-item__title {
+    font-size: 24px;
+    padding-bottom: 14px;
+    margin-bottom: 17px;
+    border-bottom: 3px dotted #fff;
+}
+.phone-content-item__img {
+    padding: 0;
+    width: 100%;
+}
+.phone-content-item__form {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 33px 50px;
+    border-bottom: 1px solid #fff;
+}
+
+.password-container {
+    position: relative;
+    display: inline-block;
+}
+
+.phone-content-item-form__input {
+    height: 66px;
+    border-radius: 10px;
+    right: 10px;
+    text-indent: 30px;
+    margin-bottom: 20px;
+    padding-right: 40px; /* Оставляем место для иконки внутри поля */
+    width: 100%; /* Поле ввода будет растягиваться по ширине родителя */
+}
+
+.phone-content-item-form__input[placeholder] {
+    color: #3847B1;
+}
+
+#eyeIcon {
+    position: absolute;
+    right: 15px; /* Расстояние от правого края поля */
+    top: 50%; /* Центрирование по вертикали */
+    transform: translateY(-117%); /* Центрирование по вертикали */
+    cursor: pointer;
+    width: 17px; /* Задайте размер иконки */
+    height: 15px;
+}
+
+.phone-content-item-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 44px;
+}
+.phone-content-item-group__link {
+    color: #fff;
+    font-size: 16px;
+    transition: color .3s;
+}
+.phone-content-item-group__link:hover {
+    color: #414FB5;
+}
+.phone-content-item-form__button {
+    padding: 17px 0;
+    font-size: 24px;
+}
+/* Стиль для вертикальной и горизонтальной полосы прокрутки */
+::-webkit-scrollbar {
+    width: 8px;  /* Ширина вертикальной полосы прокрутки */
+    height: 8px; /* Высота горизонтальной полосы прокрутки */
+    border-radius: 17px; /* Радиус полосы прокрутки */
+}
+    
+/* Цвет фона полосы прокрутки */
+::-webkit-scrollbar-track {
+    background-color: transparent; /* Полоса прокрутки без заливки */
+    border: 1px solid #7B898A; /* Контур полосы прокрутки */
+    border-radius: 8px;
+    padding: 2px; /* Отступы внутри полосы прокрутки */
+}
+
+/* Стиль для ползунка (thumb) */
+::-webkit-scrollbar-thumb {
+    border-radius: 8px; /* Радиус ползунка */
+    background-color: #7B898A; /* Цвет заливки ползунка */    
+    border: 0.4px solid transparent; /* Создаем внутренний отступ у ползунка */
+    box-shadow: inset 0 0 0 2px #7B898A; /* Отступ ползунка внутри скроллбара */
+}
+    
+/* Псевдоклассы для стилизации при наведении */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #7B898A; /* Ползунок при наведении */
+}
+
+/*Кнопка "Нижняя подложка"*/
+footer {
+    background-color: #D9D9D9;
+    font-family: 'Gotham Pro', sans-serif;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    text-align: center;
+    font-size: 10px;
+    width: 100%;
+    position: relative; /* Позиционирование для подъёма */
+    bottom: 2%; /* Поднимаем на 2% вверх */ 
+    flex-shrink: 0;
+    font-size: 0.8vw;
+    
+}
+
+/* Страница входа*/
+/* ____________________________________________________ */
+
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-bottom: 2px solid #ccc;
+}
+.header-right {
+    display: flex; 
+    justify-content: space-between; 
+    gap: 0px 20px;
+}
+.header__edit-button {
+    margin: 0px 0px;
+}
+/* Left side - Account */
+.account {
+    display: flex;
+    align-items: center;
+}
+
+.account img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform .3s;
+}
+
+.account img:hover {
+    transform: scale(1.2);
+}
+
+.account-name {
+    display: none;
+    margin-left: 10px;
+    font-size: 16px;
+}
+.account-name.active {
+    display: block;
+}
+/* Right side - Search */
+.search-box {
+    border: 2px solid #7B898A;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    width: 200px;
+}
+
+.search-box input::placeholder { /* Введите регион */
+    color: #3F5944;
+}
+
+.search-box input:hover::placeholder,
+.search-box input:focus::placeholder {
+    color: #3F5944;
+}
+
+/* Окно подсказок ввода */
+.suggestions {
+    position: absolute;
+    top: 105%; /* Расположить прямо под полем ввода */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top: none;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1000; /* Убедитесь, что подсказки перекрывают другие элементы */
+}
+
+.suggestions div {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.suggestions div:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* Table Styles */
+.container .container-1 {
+    width: 10in; /* Ширина контейнера */
+    height: 7.5in; /* Высота контейнера */
+    background-color: #7B898A; /* Цвет фона */
+    position: relative; /* Устанавливаем контекст позиционирования */
+    align-items: flex-start;
+}
+.title-img {
+    width: 10in; /* Задаём ширину изображения */
+    height: auto; /* Пропорциональная высота 3,760416666666667*/
+    position: absolute; /* Абсолютное позиционирование */
+    top: 50%; /* Сдвигаем к середине по вертикали */
+    left: 50%; /* Сдвигаем к середине по горизонтали */
+    transform: translate(-50%, -50%); /* Смещаем на половину ширины и высоты для полной центровки */
+    z-index: 2; /* Повышаем слой для отображения сверху */
+}
+.circle-img {
+    width: 7.734375in; /* Задаём ширину круга */
+    height: 7.5in; /* Задаём высоту круга */
+    object-fit: cover; /* Подгоняем изображение без искажения */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 0; /* Прижимаем к верхнему краю */
+    right: 0; /* Прижимаем к правому краю */
+    bottom: 0; /* Прижимаем к нижнему краю */
+    margin: auto; /* Центрируем круг по вертикали между top и bottom */
+}
+.text-overlay {
+    font-family: "Gotham Pro", sans-serif;
+    font-weight: bold; /* Жирный текст */
+    font-style: italic; /* Курсивный текст */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 45%; /* Вертикальная середина */
+    left: 16%; /* Сдвиг влево от середины */
+    transform: translateY(-50%); /* Центрирование по вертикали */
+    color:#3F5944; /* Белый цвет текста */
+    font-size: 24pt; /* Размер шрифта */
+    z-index: 3; /* Над изображениями */
+}
+.text-container {
+    width: 52%; /* Оставшаяся ширина */
+    word-wrap: break-word; /* Перенос длинных слов */
+    overflow-wrap: break-word; /* Современный аналог */
+    white-space: normal; /* Разрешить перенос */
+}
+.text-subtitle {
+    font-family: "Gotham Pro", sans-serif;
+    font-style: italic; /* Курсивный текст */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 52%; /* Вертикальная середина */
+    left: 16%; /* Сдвиг влево от середины */
+    transform: translateY(-50%); /* Центрирование по вертикали */
+    color:#3F5944; /* Белый цвет текста */
+    font-size: 10pt; /* Размер шрифта */
+    z-index: 3; /* Над изображениями */
+}
+.ministry-text {
+    font-family: "Gotham Pro", sans-serif;
+    font-weight: bold;
+    position: absolute; /* Абсолютное позиционирование */
+    top: 72%; /* Вертикальная середина */
+    left: 16%; /* Сдвиг влево от середины */
+    transform: translateY(-50%); /* Центрирование по вертикали */
+    color:#3F5944; /* Белый цвет текста */
+    font-size: 10pt; /* Размер шрифта */
+    z-index: 3; /* Над изображениями */
+}
+.date-text {
+    font-family: "Gotham Pro", sans-serif;
+    font-weight: bold;
+    position: absolute; /* Абсолютное позиционирование */
+    top: 72%; /* Вертикальная середина */
+    left: 58%; /* Сдвиг влево от середины */
+    transform: translateY(-50%); /* Центрирование по вертикали */
+    color:#3F5944; /* Белый цвет текста */
+    font-size: 10pt; /* Размер шрифта */
+    z-index: 3; /* Над изображениями */
+}
+.container .container-2 {
+    width: 10in; /* Ширина контейнера */
+    height: 7.5in; /* Высота контейнера */
+    background-color: #ffffff; /* Цвет фона */
+    padding: 20px; /* Отступы внутри контейнера */
+    box-sizing: border-box; /* Учитываем отступы в размерах */
+    margin-top: 30px; /* Отступ сверху */
+    position: relative;
+}
+
+.container .container-3 {
+    width: 10in; /* Ширина контейнера */
+    height: 7.5in; /* Высота контейнера */
+    background-color: #ffffff; /* Цвет фона */
+    padding: 20px; /* Отступы внутри контейнера */
+    box-sizing: border-box; /* Учитываем отступы в размерах */
+    margin-top: 30px; /* Отступ сверху */
+    position: relative;
+}
+.container .container-4 {
+    width: 10in; /* Ширина контейнера */
+    height: 7.5in; /* Высота контейнера */
+    background-color: #ffffff; /* Цвет фона */
+    padding: 20px; /* Отступы внутри контейнера */
+    box-sizing: border-box; /* Учитываем отступы в размерах */
+    margin-top: 30px; /* Отступ сверху */
+    position: relative;
+}
+.container .container-5 {
+    width: 10in; /* Ширина контейнера */
+    height: 7.5in; /* Высота контейнера */
+    background-color: #ffffff; /* Цвет фона */
+    padding: 20px; /* Отступы внутри контейнера */
+    box-sizing: border-box; /* Учитываем отступы в размерах */
+    margin-top: 30px; /* Отступ сверху */
+    position: relative;
+}
+.container.container-5 .info-table {
+    max-width: 100%; /* Ограничивает ширину таблицы родительским контейнером */
+    table-layout: fixed; /* Устанавливает фиксированную ширину столбцов */
+    word-wrap: break-word; /* Переносит длинные строки */
+    border-collapse: collapse; /* Сохраняет границы таблицы */
+}
+.container.container-5 .info-table td {
+    font-size: 7pt; /* Применяет уменьшенный шрифт к заголовкам и ячейкам */
+    text-align: center; /* Центрирует текст */
+    padding: 5px; /* Уменьшает отступы */
+}
+#table-header-row th {
+    font-size: 8pt;
+}
+#left-aligned-text {
+    text-align: left;
+    padding-left: 10px; /* Опциональный отступ от левого края */
+}
+.container .container-6 {
+    width: 10in; /* Ширина контейнера */
+    height: 7.5in; /* Высота контейнера */
+    background-color: #ffffff; /* Цвет фона */
+    padding: 20px; /* Отступы внутри контейнера */
+    box-sizing: border-box; /* Учитываем отступы в размерах */
+    margin-top: 30px; /* Отступ сверху */
+    position: relative;
+}
+.container.container-6 .info-table td {
+    font-size: 7pt; /* Применяет уменьшенный шрифт к заголовкам и ячейкам */
+    text-align: center; /* Центрирует текст */
+    padding: 5px; /* Уменьшает отступы */
+}
+.container .container-slide {
+    width: 10in; /* Ширина контейнера */
+    height: 7.5in; /* Высота контейнера */
+    background-color: #ffffff; /* Цвет фона */
+    padding: 20px; /* Отступы внутри контейнера */
+    box-sizing: border-box; /* Учитываем отступы в размерах */
+    margin-top: 30px; /* Отступ сверху */
+    position: relative;
+}
+.container-slide {
+    margin-top: 20px;
+}
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    font-size: 10pt;
+}
+.left-text {
+    font-weight: bold;
+}
+.right-text {
+    text-align: right;
+}
+.info-section {
+    display: flex;
+    gap: 2%;
+}
+.info-left,
+.info-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.info-left {
+    flex: 0 0 47%;
+    height: 100%;
+    justify-content: space-between;
+}
+.info-box:last-child {
+    margin-top: auto; /* Прижимает блок к нижней части контейнера */
+}
+.info-right {
+    flex: 0 0 51%;
+}
+.info-box {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #fff;
+}
+.violations-box {
+    height: 370px;
+}
+.empty-box {
+    height: 340px;
+    position: relative;
+    transition: width 0.3s ease;
+}
+.split-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #b1bdb2;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.box-title {
+    font-size: 14pt;
+    margin-bottom: 10px;
+    text-align: left
+}
+.box-title-2 {
+    font-size: 14pt;
+}
+.box-subtitle {
+    font-size: 10pt;
+    margin-bottom: 10px;
+    text-align: left;
+}
+.divider {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+.data-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.data-image {
+    max-width: 70px;
+}
+.data-title {
+    font-weight: bold;
+    font-size: 14pt;
+    text-align: left;
+}
+.data-subtitle {
+    font-size: 9pt;
+    color: #555;
+}
+.violations-list {
+    font-size: 8pt;
+    padding-left: 20px;
+    margin: 0;
+    list-style: disc;
+    text-align: left;
+}
+.land-info {
+    font-size: 9pt;
+    line-height: 1.5;
+    color: #ff0000;
+}
+.container .container-8 {
+    width: 10in; /* Ширина контейнера */
+    height: 7.5in; /* Высота контейнера */
+    background-color: #ffffff; /* Цвет фона */
+    padding: 20px; /* Отступы внутри контейнера */
+    box-sizing: border-box; /* Учитываем отступы в размерах */
+    margin-top: 30px; /* Отступ сверху */
+    position: relative;
+}
+.container.container-8 .info-table td {
+    font-size: 7pt; /* Применяет уменьшенный шрифт к заголовкам и ячейкам */
+    text-align: center; /* Центрирует текст */
+    padding: 5px; /* Уменьшает отступы */
+}
+.container .container-9 {
+    width: 10in; /* Ширина контейнера */
+    height: 7.5in; /* Высота контейнера */
+    background-color: #ffffff; /* Цвет фона */
+    padding: 20px; /* Отступы внутри контейнера */
+    box-sizing: border-box; /* Учитываем отступы в размерах */
+    margin-top: 30px; /* Отступ сверху */
+    position: relative;
+}
+.container.container-9 .info-table {
+    max-width: 100%; /* Ограничивает ширину таблицы родительским контейнером */
+    table-layout: fixed; /* Устанавливает фиксированную ширину столбцов */
+    word-wrap: break-word; /* Переносит длинные строки */
+    border-collapse: collapse; /* Сохраняет границы таблицы */
+    font-style: normal;
+}
+.container.container-9 .info-table td {
+    font-size: 10pt; /* Применяет уменьшенный шрифт к заголовкам и ячейкам */
+    text-align: center; /* Центрирует текст */
+    padding: 5px; /* Уменьшает отступы */
+    font-style: normal;
+}
+#table-header-row th {
+    font-size: 8pt;
+}
+#left-aligned-text {
+    text-align: left;
+    padding-left: 10px; /* Опциональный отступ от левого края */
+}
+.container .container-10 {
+    width: 10in; /* Ширина контейнера */
+    height: 7.5in; /* Высота контейнера */
+    background-color: #ffffff; /* Цвет фона */
+    padding: 20px; /* Отступы внутри контейнера */
+    box-sizing: border-box; /* Учитываем отступы в размерах */
+    margin-top: 30px; /* Отступ сверху */
+    position: relative;
+}
+.table-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+.info-table {
+    background-color: #fff;
+    border-collapse: collapse;
+    width: 100%;
+}
+.info-table .dis-flex-col {
+    display: flex;
+    flex-direction: column;
+}
+.info-table .text-at-start {
+    text-align: start;
+    font-size: 10pt;
+}
+.text-at-start p {
+    font-size: 8pt;
+    font-weight: normal;
+    font-style: italic;
+}
+.info-table .data-cell {
+    font-size: 8pt;
+    font-weight: normal;
+}
+.info-table .road-map-text {
+    font-weight: bold;
+    font-size: 8pt;
+}
+.road-map-text p {
+    font-size: 8pt;
+}
+.info-table .content-margin-left {
+    padding-left: 20px;
+}
+.info-table .font-weight-normal,
+.info-table .font-weight-normal td {
+    font-weight: normal;
+}
+.info-table .font-weight-bold  {
+    font-weight: bold !important;
+}
+.info-table .table-cell-title {
+    font-size: 10pt;
+}
+.info-table .secondary-title {
+    background-color: #ffffff;
+}
+.info-table .info-table-thead tr {
+    position: absolute;  /* Прикрепляет заголовок к верхнему краю */
+    top: 0;            /* Прижимаем к верхнему краю */
+    left: 0;           /* Прижимаем к левому краю */
+    right: 0;          /* Прижимаем к правому краю */
+    background-color: #7B898A;
+    z-index: 10;
+    margin-bottom: 15px;
+}
+.info-table .info-table-thead__title {
+    width: 100%;
+    background-color: #7B898A;  /* Фон для заголовков */
+    color: #fff;                /* Цвет текста */
+    padding: 10px 20px;         /* Отступы для удобства */
+    text-align: center;         /* Центрируем текст по умолчанию */
+    border: none;               /* Убираем рамки */
+    font-size: 14pt;
+    white-space: nowrap;
+}
+.info-table .info-table-thead__title:nth-of-type(1) {
+    text-align: start;
+    font-size: 14pt;
+}
+.info-table .info-table-thead__title:nth-of-type(2) {
+    text-align: end;
+    font-size: 8.5pt;
+}
+.info-table .info-table-thead::after {
+    content: "";
+    display: block;
+    height: 20px; /* Высота отступа */
+}
+.info-table .info-table-td {
+    padding: 0;
+    border: none;
+    margin-bottom: 20px;
+}
+.info-table .info-table-td table td {
+    color: #3F5944;
+    font-size: 10pt;
+}
+.info-table .info-table-td table {
+    color: #3F5944;
+    font-size: 10pt;
+    margin-bottom: 20px;
+}
+.info-table tr td { /* Деятельность региональных операторов */
+    color: #3F5944;
+    font-size: 10pt;
+}
+.info-table .info-table-header {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+}
+.info-table .info-table-header__item {
+    text-align: start;
+    color: #3F5944;
+    font-weight: bold;
+    font-size: 8.5pt;
+}
+.info-table .info-table-header__item:nth-of-type(1) { /* фигура региональный штаб*/
+    position: relative;
+    padding: 13.5px 0;
+    background-color: #7B898A;
+    color: #fff;
+    font-size: 12pt;
+    margin-right: 55px;
+    padding-left: 20px;
+}
+.info-table .info-table-header__item:nth-of-type(1)::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 22px);
+    right: -22px;
+    width: 45px;
+    height: 44.5px;
+    transform: rotate(45deg);
+    background-color: #7B898A;
+    z-index: 1;
+}
+.info-table .info-table-header__item:nth-of-type(2) {
+    position: relative;
+    margin-right: 100px;
+    padding-right: 20px;
+}
+.info-table .info-table-header__item:nth-of-type(2)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -60px;
+    height: 40px;
+    width: 35px;
+    background: url('../img/left-arrow.png') no-repeat center / cover;
+}
+.info-table .info-table-header-leader {
+    display: flex;
+    flex-direction: column;
+}
+.info-table .info-table-header__item:nth-of-type(1) p {
+    position: relative;
+    z-index: 2;
+}
+.info-table .info-table-header__leader-name {
+    color: #3F5944;
+}
+.info-table .info-table-header__item:nth-of-type(2) p {
+    position: relative;
+    z-index: 2;
+}
+.info-table .info-table-name,
+.info-table .info-table-company-reasons {
+    text-align: start;
+}
+.cart {
+    max-width: 50%;
+    width: 100%;
+}
+.plan, .fact,  .deivation, .event{
+    max-width: 12.5%;
+    width: 100%;
+}
+.maps {
+    max-width: 50%;
+    width: 100%;
+}
+.zana, .reason{
+    max-width: 25%;
+    width: 100%;
+}
+.info-table .editable-table table td {
+    position: relative;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-all; 
+    white-space: normal;
+    
+}
+.info-table .editable-table table td.edit-active {
+    transition: background-color .3s;
+}
+.info-table .editable-table table td::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 10px);
+    right: 2%;
+    width: 20px;
+    height: 20px;
+    transition: transform .3s;
+    transform: scale(0);
+}
+.info-table .editable-table table td.edit-active::before {
+    transition: all .3s;
+    transform: scale(1);
+}
+.info-table .editable-table table td.edit-active:focus {
+    background-color: #d1e6ff;
+}
+.info-table th {
+    font-size: 10pt;
+    background-color: #E9EEEA;
+    border: 1px solid #ccc;
+    color: #3F5944;
+    padding: 10px 20px;
+    text-align: center;
+    border-collapse: collapse;
+}
+.info-table td {
+    font-weight: bold;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    text-align: center;
+}
+/* Убираем внешние границы у ячеек */
+.info-table th:first-child,
+.info-table td:first-child {
+    border-left: none;
+}
+#special-cell {
+    border-left: 1px solid #ccc;
+}
+#right-cell {
+    border-right: none;
+}
+#exceptional-cell {
+    border-top: 1px solid #ccc;
+}
+#delete-cell {
+    border-top: none;
+}
+.info-table .left-aligned-protocol {
+    text-align: left;
+    font-size: 10pt; /* Уменьшенный размер шрифта */
+    font-style: italic;
+    padding-left: 20px; /* Отступ от левого края */
+    line-height: 1.4; /* Межстрочный интервал */
+}
+.left-aligned-protocol p {
+    text-align: left;
+    font-size: 10pt; /* Размер шрифта для параграфов */
+    margin: 5px 0; /* Отступы между параграфами */
+    padding-left: 20px; /* Отступ от левого края */
+    line-height: 1; /* Межстрочный интервал */
+}
+.info-table th:last-child,
+.info-table td:last-child {
+    border-right: none;
+}
+
+.info-table tr:first-child th {
+    border-top: none; /* Убираем верхнюю границу */
+    border-right: none;
+}
+
+.info-table tr:last-child td {
+    border-bottom: none; /* Убираем нижнюю границу */   
+    border-right: none; 
+}
+.info-table-td .spcified-color {
+    border-collapse: collapse; /* Объединение границ */
+    width: 100%; /* Установка ширины */
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1); /* Тень */
+    border-radius: 15px; /* Закруглённые углы */
+    overflow: hidden; /* Скрытие содержимого за углами */
+    background-color: #fff; /* Цвет фона таблицы */
+}
+.info-table .highlight-yellow {
+    background-color: #FFD966;
+}
+
+.info-table .highlight-red {
+    background-color: #ff4d4d;
+}
+
+.info-table .highlight-green {
+    background-color: #A9D18E;
+}
+
+/* Button */
+.generate-btn {
+    display: block;
+    margin: 0 auto;
+    background-color: #3847B1;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 10pt;
+    cursor: pointer;
+}
+
+.generate-btn:hover {
+    background-color: #2c3a94;
+}
+
+.highlight-green {
+    color: #A9D18E; /* Зеленый цвет */
+}
+
+.highlight-red {
+    color: #ff4d4d; /* Красный цвет */
+}

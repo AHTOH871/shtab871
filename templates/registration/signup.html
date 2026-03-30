@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Организация обращения с ТКО</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    {% load widget_tweaks %}
+</head>
+<body class="dark">
+    <main class="index-main">
+        <section class="section index-section">
+            <img src="/static/img/logo.png" class="logo" alt="Логотип">
+            <div class="container index-wrap">
+                <div class="left-section">
+                    <h2 class="submission-title">Регистрация</h2>
+                </div>
+                <div class="right-section-wrap">
+                        <form method="post" class="phone-content-item__form">
+                            {% csrf_token %}
+                            <p>
+                            {% render_field form.username class="phone-content-item-form__input" placeholder="Имя пользователя" %}
+                            </p>
+                            <p>
+                            {% render_field form.first_name class="phone-content-item-form__input" placeholder="Полное имя" %}
+                            </p>
+                            <p>
+                            {% render_field form.last_name class="phone-content-item-form__input" placeholder="Фамилия" %}
+                            </p>
+                            <p>
+                            {% render_field form.email class="phone-content-item-form__input" placeholder="email" %}
+                            </p>
+                            <p>
+                            {% render_field form.password1 class="phone-content-item-form__input" placeholder="Введите пароль" %}
+                            </p>
+                            <p>
+                            {% render_field form.password2 class="phone-content-item-form__input" placeholder="Подтвердите пароль" %}
+                            </p>
+                            <input type="submit" class="button button--primary phone-content-item-form__button" value="Зарегистрировать">
+                        </form>
+                    </div>
+                </div>
+            </section>
+    </main>
+    <footer>
+        <p>©Министерство природных ресурсов и экологии Российской Федерации</p>
+    </footer>   
+    <script src="/static/js/switching-interfaces.js"></script> 
+    <!-- <script src="/static/js/authScript.js"></script>  -->
+</body>
+</html>
