@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+        "@/*": ["src/*"]
+        }
+    },
+    "include": ["src", "eslint.config.js", "jsconfig.json", "src/main.jsx", "vite.config.js"]
+}
